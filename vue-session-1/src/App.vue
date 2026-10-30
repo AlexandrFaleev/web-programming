@@ -65,7 +65,7 @@ const toggleTheme = () => {
         <span>Шаг</span>
         <input
             class="task-2__input"
-            v-model="step"
+            v-model.number="step"
             type="number"
             min="1"
             step="1"
