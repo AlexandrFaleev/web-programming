@@ -7,9 +7,7 @@ const mark = ref( 0 )
 const shoppingList = ref( [{id: 'product-1', name: 'Капуста'}, {id: 'product-2', name: 'Перец'}] )
 const productName = ref( '' )
 const productsCount = computed(() => shoppingList.value.length)
-const addProduct = (e) => {
-  e.preventDefault()
-
+const addProduct = () => {
   if(productName.value.length > 0){
     shoppingList.value.push({
       id: crypto?.randomUUID() ?? Date.now().toString(),
@@ -115,7 +113,7 @@ const decreaseStudentScore = (id) => {
     </h2>
   </section>
   <section class="task-2">
-    <form class="task-2__form" @submit="addProduct">
+    <form class="task-2__form" @submit.prevent="addProduct">
       <label class="task-2__label">
         <span class="task-2__field-title">Название продукта</span>
         <input
