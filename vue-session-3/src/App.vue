@@ -129,7 +129,7 @@ const removeUndone = () => {
       >
         Очистить невыполненные
       </button>
-      <ul class="task-4__list">
+      <ul class="task-4__list" v-if="todos.length > 0">
         <TodoItem
             class="task-4__todo-item"
             v-for="todo in todos"
@@ -139,6 +139,9 @@ const removeUndone = () => {
             @delete="removeTodo"
         />
       </ul>
+      <h3 class="task-4__todo-empty" v-else>
+        У вас пока нет задач
+      </h3>
     </div>
   </section>
 </template>
@@ -392,6 +395,12 @@ section {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.task-4__todo-empty {
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
 }
 
 </style>
